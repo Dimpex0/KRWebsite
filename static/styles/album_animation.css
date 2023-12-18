@@ -11,35 +11,59 @@
 .album-card a::after {
     content: "";
     width: 100%;
-    height: 0;
+    height: 100%;
     background-color: black;
     opacity: 20%;
     position: absolute;
-    bottom: 3px;
+    bottom: 2px;
     left: 0;
     transition: 300ms;
 }
 
 .album-name {
-    width: 100%;
-    text-align: center;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: "articulat-cf", sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 28px;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    color: transparent;
-    transition: 300ms;
-}
-
-.album-card:hover .album-name {
-    bottom: 35%;
     color: white;
 }
 
-.album-card:hover a::after {
-    height: 100%;
+.album-card {
+    all: unset;
+    position: relative;
+}
+
+@media screen and (min-width: 1000px) {
+    .album-card a::after{
+        height: 0;
+    }
+
+    .album-name {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        font-family: "articulat-cf", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 28px;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: 300ms;
+    }
+
+    .album-card:hover .album-name {
+        bottom: 35%;
+        color: white;
+        opacity: 100%;
+    }
+
+    .album-card:hover a::after {
+        height: 100%;
+    }
 }

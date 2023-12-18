@@ -9,3 +9,9 @@ main {
     gap: 20px;
     flex-wrap: wrap;
 }
+
+@media screen and (max-width: 1000px) {
+    main {
+        padding: 20px 0;
+    }
+}
