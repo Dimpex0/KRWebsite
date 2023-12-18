@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ name }} | Album{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'styles/album.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/delete-button.css' %}">
+{% endblock %}
+
+{% block page_content %}
+    <main>
+        {% if user.is_authenticated and user.is_staff %}
+            <form class="custom-form" action="{% url 'album page' pk=pk name=name %}" method="POST" enctype="multipart/form-data">
+                <p>Upload images to this album</p>
+                <input name="files" type="file" multiple>
+                <button>Upload</button>
+                {% csrf_token %}
+            </form>
+        {% endif %}
+        <h1>{{ name }}</h1>
+        {% if images %}
+            <div class="images-container">
+                {% for image in images %}
+                    <div class="image-container">
+                        <img class="image{{ image.pk }}" src="/media/{{ image.image }}" alt="{{ name }} image" />
+                        <div class="loader"></div>
+                        {% if user.is_authenticated and user.is_staff %}
+                            <form method="POST" action="{% url 'album page' pk=pk name=name %}">
+                                <button class="delete-btn" name="delete-image" value="{{ image.pk }}">Delete</button>
+                                {% csrf_token %}
+                            </form>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No images available</p>
+        {% endif %}
+    </main>
+{% endblock %}

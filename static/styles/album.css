@@ -1,0 +1,30 @@
+main {
+    margin-top: 100px;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: "canto-brush", serif;
+    font-weight: 600;
+    color: #414244;
+    font-style: normal;
+    text-align: center;
+    font-size: 40px;
+}
+
+.images-container {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    max-height: 450px;
+}

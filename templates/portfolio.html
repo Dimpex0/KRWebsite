@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ name }} | Album{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'styles/portfolio.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/album_animation.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/delete-button.css' %}">
+{% endblock %}
+
+{% block page_content %}
+    <main>
+        <h1>{{ name }}</h1>
+        {% if albums %}
+            <div class="albums-container">
+                {% for album in albums %}
+                    <div class="album-card">
+                        <a href="{% url 'album page' pk=album.pk name=album.name %}">
+                            <img class="album{{ album.pk }}" src="{{ album.cover_image.url }}" alt="{{ album.name }} album image" />
+                            <div class="loader"></div>
+                        </a>
+                        <p class="album-name">{{ album.name }}</p>
+                        {% if user.is_authenticated and user.is_staff %}
+                            <form method="POST" action="{% url 'portfolio page' %}">
+                                <button class="delete-btn" name="delete-album" value="{{ album.pk }}">Delete</button>
+                                {% csrf_token %}
+                            </form>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No albums available</p>
+        {% endif %}
+    </main>
+{% endblock %}

@@ -1,0 +1,45 @@
+main {
+    margin-top: 100px;
+}
+
+.section-heading {
+    text-transform: uppercase;
+    font-family: "canto-brush", serif;
+    font-weight: 600;
+    color: #414244;
+    font-style: normal;
+    font-size: 50px;
+    width: 370px;
+    border-bottom: 1px solid black;
+    margin: 0 auto 20px auto;
+}
+
+.spacing {
+    margin: 0 20px;
+}
+
+.albums {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.about-me {
+    margin-top: 100px;
+}
+
+.about-me .section-heading {
+    width: 280px;
+}
+
+.about-me p {
+    margin: auto;
+    width: 1000px;
+    font-size: 22px;
+    font-family: "articulat-cf", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    text-align: center;
+}

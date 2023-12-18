@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Karolina Ruseva | KR Photography{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/0b1ca8c563.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/mky2dau.css">
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+    {% block styles %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                <a href="{% url 'home page' %}">Home</a>
+                <a href="{% url 'portfolio page' %}">Portfolio</a>
+            </div>
+            <a href="{% url 'home page' %}"><img src="{% static 'images/logo.png' %}" alt="logo image" /></a>
+            <div class="right">
+                <a href="#"><i class="icon fa-solid fa-mobile-screen-button"></i></a>
+                <a href="#"><i class="icon fa-regular fa-envelope"></i></a>
+                <a href="#"><i class="icon fa-brands fa-instagram"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    {% block page_content %}
+        <h1>Couldn't find this page</h1>
+    {% endblock %}
+
+    <script src="{% static 'javascript/loading.js' %}"></script>
+</body>
+</html>
