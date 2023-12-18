@@ -12,7 +12,19 @@ def home_page_view(request):
     if request.method == 'POST':
         form = AlbumForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            print(form.cleaned_data)
+            album_name = form.cleaned_data['name']
+            cover_image = form.cleaned_data['cover_image']
+            img = PILImage.open(cover_image)
+
+            compressed_image = BytesIO()
+            img.save(compressed_image, format='JPEG', quality=50)
+            compressed_image.seek(0)
+
+            album = Album()
+            album.cover_image.save(cover_image.name, compressed_image, save=False)
+            album.name = album_name
+            album.save()
             return redirect('home page')
     context = {
         'albums': Album.objects.order_by('-id')[:3],
