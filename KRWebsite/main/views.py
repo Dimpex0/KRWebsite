@@ -8,6 +8,8 @@ from PIL import Image as PILImage
 from io import BytesIO
 
 
+# TODO get compression to a function and add response messages
+
 def home_page_view(request):
     if request.method == 'POST':
         form = AlbumForm(request.POST, request.FILES)
