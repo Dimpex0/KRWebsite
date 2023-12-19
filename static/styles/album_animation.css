@@ -5,6 +5,8 @@
 
 .album-card img {
     height: 500px;
+    max-width: 300px;
+    object-fit: cover;
     position: relative;
 }
 
@@ -22,7 +24,7 @@
 
 .album-name {
     position: absolute;
-    top: 50%;
+    bottom: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: "articulat-cf", sans-serif;
@@ -30,6 +32,7 @@
     font-style: normal;
     font-size: 28px;
     color: white;
+    text-align: center;
 }
 
 .album-card {

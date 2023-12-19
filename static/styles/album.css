@@ -27,4 +27,59 @@ h1 {
 
 .image-container img {
     max-height: 450px;
+    cursor: zoom-in;
+}
+
+.focused-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 70%;
+    display: none;
+}
+
+.focused-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.left-arrow {
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    font-size: 75px;
+    cursor: pointer;
+    color: goldenrod;
+}
+
+.right-arrow {
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    font-size: 75px;
+    cursor: pointer;
+    color: goldenrod;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: goldenrod;
+    font-size: 75px;
+}
+
+@media screen and (max-width: 1000px) {
+    .close-btn {
+        top: unset;
+        right: unset;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 150px;
+    }
 }
