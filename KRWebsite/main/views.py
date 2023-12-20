@@ -1,7 +1,11 @@
+from django.conf import settings
 from django.contrib import messages
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
-from .models import Album, Image
+from .models import Album, Image, Worker
 
 from .forms import AlbumForm
 
@@ -20,20 +24,50 @@ def compress_image(image):
 
 def home_page_view(request):
     if request.method == 'POST':
-        form = AlbumForm(request.POST, request.FILES)
-        if form.is_valid():
-            album_name = form.cleaned_data['name']
-            cover_image = form.cleaned_data['cover_image']
+        if 'contact-form' in request.POST:
+            try:
+                form_data = request.POST
+                first_name = form_data['first_name']
+                last_name = form_data['last_name']
+                email = form_data['email']
+                phone = form_data['phone']
+                message = form_data['message']
+                html_message = render_to_string('mails/contact.html', {
+                    'first_name': first_name,
+                    'last_name': last_name,
+                    'email': email,
+                    'phone': phone,
+                    'message': message,
+                })
+                plain_message = strip_tags(html_message)
+                send_mail(
+                    subject=f'KR Photography contact from {first_name}',
+                    message=plain_message,
+                    html_message=html_message,
+                    from_email=settings.EMAIL_HOST_USER,
+                    recipient_list=[worker.email for worker in Worker.objects.all() or None]
+                )
+                messages.success(request, 'Message has been sent')
+            except:
+                messages.error(request, "Couldn't send message. Please try again later.")
+            finally:
+                return redirect('home page')
+        if 'album-form' in request.POST:
+            form = AlbumForm(request.POST, request.FILES)
+            if form.is_valid():
+                album_name = form.cleaned_data['name']
+                cover_image = form.cleaned_data['cover_image']
 
-            compressed_image = compress_image(cover_image)
+                compressed_image = compress_image(cover_image)
 
-            album = Album()
-            album.cover_image.save(cover_image.name, compressed_image, save=False)
-            album.name = album_name
-            album.save()
-            messages.success(request, 'Successfully uploaded!')
+                album = Album()
+                album.cover_image.save(cover_image.name, compressed_image, save=False)
+                album.name = album_name
+                album.save()
+                messages.success(request, 'Successfully uploaded!')
+                return redirect('home page')
+            messages.error(request, "Couldn't upload album")
             return redirect('home page')
-        messages.error(request, "Couldn't upload album")
     context = {
         'albums': Album.objects.order_by('-id')[:3],
         'album_form': AlbumForm,

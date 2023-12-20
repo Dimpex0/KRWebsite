@@ -29,3 +29,15 @@ class Image(models.Model):
         null=False,
         blank=False,
     )
+
+
+class Worker(models.Model):
+    name = models.CharField(
+        max_length=255,
+        null=False,
+        blank=False
+    )
+    email = models.EmailField(
+        null=False,
+        blank=False
+    )
