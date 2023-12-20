@@ -49,7 +49,7 @@ h1 {
 .left-arrow {
     position: absolute;
     top: 50%;
-    left: -50px;
+    left: -30px;
     font-size: 75px;
     cursor: pointer;
     color: #414244;
@@ -58,7 +58,7 @@ h1 {
 .right-arrow {
     position: absolute;
     top: 50%;
-    right: -50px;
+    right: -30px;
     font-size: 75px;
     cursor: pointer;
     color: #414244;
@@ -80,6 +80,34 @@ h1 {
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 150px;
+        font-size: 50px;
+    }
+
+    .left-arrow, .right-arrow {
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .image-container img {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .image-container img {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .image-container img {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .image-container img {
+        width: 300px;
     }
 }

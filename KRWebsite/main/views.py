@@ -13,11 +13,11 @@ from PIL import Image as PILImage
 from io import BytesIO
 
 
-def compress_image(image):
+def compress_image(image, quality=70):
     img = PILImage.open(image)
 
     compressed_image = BytesIO()
-    img.save(compressed_image, format='JPEG', quality=50)
+    img.save(compressed_image, format='JPEG', quality=quality)
     compressed_image.seek(0)
     return compressed_image
 
@@ -58,7 +58,7 @@ def home_page_view(request):
                 album_name = form.cleaned_data['name']
                 cover_image = form.cleaned_data['cover_image']
 
-                compressed_image = compress_image(cover_image)
+                compressed_image = compress_image(cover_image, quality=70)
 
                 album = Album()
                 album.cover_image.save(cover_image.name, compressed_image, save=False)
@@ -78,7 +78,7 @@ def home_page_view(request):
 def album_page(request, pk, name):
     if request.method == 'POST':
         for file in request.FILES.getlist('files'):
-            compressed_image = compress_image(file)
+            compressed_image = compress_image(file, quality=50)
 
             image = Image()
             image.image.save(file.name, compressed_image, save=False)

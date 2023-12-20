@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Karolina Ruseva | KR Photography{% endblock %}</title>
     <script src="https://kit.fontawesome.com/0b1ca8c563.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.typekit.net/mky2dau.css">
@@ -36,6 +37,20 @@
     {% block page_content %}
         <h1>Couldn't find this page</h1>
     {% endblock %}
+    
+    <footer>
+        <div class="footer-row">
+            <div class="image-container"><img src="{% static 'images/logo.png' %}" alt="logo image" /></div>
+            <p>FOCUS <i class="fa-solid fa-camera"></i> BOKUS</p>
+            <div class="social">
+                <a href="tel:+359878367385"><i class="icon fa-solid fa-mobile-screen-button"></i></a>
+                <a href="mailto:karoliaruseva@icloud.com"><i class="icon fa-regular fa-envelope"></i></a>
+                <a href="https://www.instagram.com/krln.ph/" target="_blank"><i class="icon fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+        <p>&copy;2024 KR Photography. ALL RIGHTS RESERVED</p>
+        
+    </footer>
 
     <script src="{% static 'javascript/loading.js' %}"></script>
 </body>

@@ -26,10 +26,6 @@ main {
     gap: 12px;
 }
 
-/*.about-me {*/
-/*    margin-top: 100px;*/
-/*}*/
-
 .about-me .section-heading {
     width: 280px;
 }
@@ -131,4 +127,10 @@ section {
 .contact-form button:hover {
     background-color: lightgray;
     color: black;
+}
+
+@media screen and (max-width: 1000px) {
+    .contact-form {
+        padding: 0;
+    }
 }
