@@ -52,7 +52,7 @@ h1 {
     left: -50px;
     font-size: 75px;
     cursor: pointer;
-    color: goldenrod;
+    color: #414244;
 }
 
 .right-arrow {
@@ -61,7 +61,7 @@ h1 {
     right: -50px;
     font-size: 75px;
     cursor: pointer;
-    color: goldenrod;
+    color: #414244;
 }
 
 .close-btn {
@@ -69,7 +69,7 @@ h1 {
     top: 0;
     right: 0;
     cursor: pointer;
-    color: goldenrod;
+    color: #414244;
     font-size: 75px;
 }
 
