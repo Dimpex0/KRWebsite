@@ -115,11 +115,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static_files/'
 STATICFILES_DIRS = [BASE_DIR / 'static/']
+if not DEBUG:
+    STATIC_ROOT = os.getenv('STATIC_ROOT', BASE_DIR / 'static_files')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+if not DEBUG:
+    MEDIA_ROOT = os.getenv('MEDIA_ROOT', BASE_DIR / 'media_files')
+else:
+    MEDIA_ROOT = BASE_DIR / 'media_files'
 
 DATA_UPLOAD_MAX_NUMBER_FILES = 300
 

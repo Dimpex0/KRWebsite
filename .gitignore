@@ -2,3 +2,6 @@
 media
 .venv
 .idea
+docker-compose.yml
+Dockerfile
+nginx
