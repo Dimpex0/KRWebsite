@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Album(models.Model):
@@ -15,6 +16,9 @@ class Album(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('album page', kwargs={'pk': self.pk, 'name': self.name})
 
 
 class Image(models.Model):
