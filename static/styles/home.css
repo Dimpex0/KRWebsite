@@ -9,9 +9,10 @@ main {
     color: #414244;
     font-style: normal;
     font-size: 50px;
-    width: 370px;
+    width: 380px;
     border-bottom: 1px solid black;
     margin: 0 auto 20px auto;
+    white-space: nowrap;
 }
 
 .spacing {
@@ -46,7 +47,7 @@ section {
 }
 
 .contact-me .section-heading {
-    width: 350px;
+    width: 360px;
 }
 
 .contact-form {
