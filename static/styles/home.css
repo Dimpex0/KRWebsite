@@ -52,7 +52,7 @@ section {
 .contact-form {
     max-width: 800px;
     margin: auto;
-    padding: 20px 50px;
+    padding: 20px 30px;
     color: white;
 }
 
@@ -129,8 +129,18 @@ section {
     color: black;
 }
 
-@media screen and (max-width: 1000px) {
-    .contact-form {
-        padding: 0;
+@media screen and (max-width: 390px) {
+    .section-heading {
+        font-size: 40px;
+        width: 300px;
+    }
+
+    .contact-me .section-heading {
+        font-size: 40px;
+        width: 285px;
+    }
+
+    .contact-form ::placeholder {
+        font-size: 16px;
     }
 }
