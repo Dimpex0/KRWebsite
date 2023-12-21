@@ -41,14 +41,14 @@
             <h2 class="section-heading">Contact<span class="spacing"></span>me</h2>
             <form class="contact-form" action="{% url 'home page' %}" method="POST">
                 <div class="contact-form-first-row">
-                    <input type="text" name="first_name" placeholder="First Name">
-                    <input type="text" name="last_name" placeholder="Last Name">
+                    <input type="text" name="first_name" placeholder="First Name" required>
+                    <input type="text" name="last_name" placeholder="Last Name" required>
                 </div>
                 <div class="contact-form-second-row">
-                    <input type="email" name="email" placeholder="Email">
+                    <input type="email" name="email" placeholder="Email" required>
                     <input type="tel" name="phone" placeholder="Phone">
                 </div>
-                <textarea name="message" placeholder="Type in your message!"></textarea>
+                <textarea name="message" placeholder="Type in your message!" required></textarea>
                 <button name="contact-form">Submit</button>
                 {% csrf_token %}
             </form>
