@@ -9,7 +9,7 @@ for (const image of images) {
 }
 
 window.onload = () => {
-    loaders = document.querySelectorAll('.loader');
+    const loaders = document.querySelectorAll('.loader');
     loaders.forEach(loader => {
         loader.style.display = 'none';
     })

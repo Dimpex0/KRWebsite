@@ -25,8 +25,8 @@
                         <a href="{% url 'album page' pk=album.pk name=album.name %}">
                             <img class="album{{ album.pk }}" src="{{ album.cover_image.url }}" alt="{{ album.name }} album image" />
                             <div class="loader"></div>
+                            <p class="album-name">{{ album.name }}</p>
                         </a>
-                        <p class="album-name">{{ album.name }}</p>
                     </div>
                 {% endfor %}
             </div>
