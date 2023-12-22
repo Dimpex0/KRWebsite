@@ -1,5 +1,6 @@
 .env
 media
+media_files
 .venv
 .idea
 docker-compose.yml
