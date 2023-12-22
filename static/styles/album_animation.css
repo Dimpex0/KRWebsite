@@ -23,8 +23,9 @@
 }
 
 .album-name {
+    width: 100%;
     position: absolute;
-    bottom: 20%;
+    bottom: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: "articulat-cf", sans-serif;
@@ -63,7 +64,7 @@
     }
 
     .album-card:hover .album-name {
-        bottom: 35%;
+        bottom: 25%;
         color: white;
         opacity: 100%;
         z-index: 100;
