@@ -1,4 +1,4 @@
-const images = document.getElementsByTagName('img');
+const images = document.querySelectorAll('main img');
 
 for (const image of images) {
     image.onload = () => {
