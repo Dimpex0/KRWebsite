@@ -106,6 +106,7 @@ def portfolio_view(request):
 
         return redirect('portfolio page')
     context = {
-        'albums': Album.objects.order_by('-id')
+        'albums': Album.objects.order_by('-id'),
+        'keywords': ', '.join([album.name for album in Album.objects.all()]),
     }
     return render(request, 'portfolio.html', context=context)
