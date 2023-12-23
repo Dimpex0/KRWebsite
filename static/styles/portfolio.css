@@ -10,6 +10,22 @@ main {
     flex-wrap: wrap;
 }
 
+.update-btn {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: 300ms;
+}
+
+.update-btn:hover {
+    background-color: #414244;
+}
+
 @media screen and (max-width: 1000px) {
     main {
         padding: 20px 0;

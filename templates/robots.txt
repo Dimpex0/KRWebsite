@@ -1,5 +1,6 @@
 User-agent: *
 Disallow: /admin/
+Disallow: /update-album/
 Crawl-delay: 10
 
 Sitemap: https://k-ruseva.eu/sitemap.xml

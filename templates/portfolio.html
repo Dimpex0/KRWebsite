@@ -27,6 +27,7 @@
                                 <button class="delete-btn" name="delete-album" value="{{ album.pk }}">Delete</button>
                                 {% csrf_token %}
                             </form>
+                            <a class="update-btn" href="{% url 'update album page' pk=album.pk %}">Change</a>
                         {% endif %}
                     </div>
                 {% endfor %}

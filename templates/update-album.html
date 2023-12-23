@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}KR Photography | Portfolio{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'styles/forms.css' %}">
+{% endblock %}
+
+{% block page_content %}
+    <main>
+        <form class="custom-form" action="{% url 'update album page' pk=pk %}" method="POST" enctype="multipart/form-data">
+            {{ form }}
+            <button>Update</button>
+            {% csrf_token %}
+        </form>
+    </main>
+{% endblock %}

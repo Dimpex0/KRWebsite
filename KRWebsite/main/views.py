@@ -1,3 +1,5 @@
+import os
+
 from django.conf import settings
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -110,3 +112,27 @@ def portfolio_view(request):
         'keywords': ', '.join([album.name for album in Album.objects.all()]),
     }
     return render(request, 'portfolio.html', context=context)
+
+
+def update_album_view(request, pk):
+    if request.method == 'POST':
+        album = Album.objects.get(pk=pk)
+        image = request.FILES['cover_image'] if 'cover_image' in request.FILES else None
+        name = request.POST['name']
+        if album.name != name:
+            album.name = name
+        if image is not None and album.cover_image != image:
+            try:
+                compressed_image = compress_image(image, 70)
+                album.cover_image.delete()
+                album.cover_image.save(image.name, compressed_image, save=False)
+            except:
+                messages.error(request, "Couldn't update image")
+        album.save()
+        return redirect('update album page', pk=pk)
+
+    context = {
+        'form': AlbumForm(instance=Album.objects.get(pk=pk)),
+        'pk': pk,
+    }
+    return render(request, template_name='update-album.html', context=context)
