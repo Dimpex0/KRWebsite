@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}404 Not Found{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'styles/404.css' %}">
+{% endblock %}
+
+{% block page_content %}
+    <main>
+        <h1>Ooops.... Looks like you are lost</h1>
+        <a href="{% url 'home page' %}">Go home</a>
+    </main>
+{% endblock %}
