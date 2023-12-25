@@ -79,14 +79,15 @@ def home_page_view(request):
 
 def album_page(request, pk, name):
     if request.method == 'POST':
-        for file in request.FILES.getlist('files'):
-            compressed_image = compress_image(file, quality=50)
+        if 'upload' in request.POST:
+            for file in request.FILES.getlist('files'):
+                compressed_image = compress_image(file, quality=50)
 
-            image = Image()
-            image.image.save(file.name, compressed_image, save=False)
-            image.album = Album.objects.get(pk=pk)
-            image.save()
-        messages.success(request, f'Successfully uploaded!')
+                image = Image()
+                image.image.save(file.name, compressed_image, save=False)
+                image.album = Album.objects.get(pk=pk)
+                image.save()
+            messages.success(request, f'Successfully uploaded!')
         if 'delete-image' in request.POST:
             image = Image.objects.get(pk=request.POST['delete-image'])
             image.delete()

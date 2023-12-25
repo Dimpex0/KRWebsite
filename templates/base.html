@@ -29,6 +29,15 @@
     <link rel="stylesheet" href="https://use.typekit.net/mky2dau.css">
     <link rel="stylesheet" href="{% static 'styles/base.css' %}">
     {% block styles %}{% endblock %}
+
+    <style>
+        .form-btn-loading {
+            background: url("{% static 'images/loading-gif.gif' %}") no-repeat center center;
+            background-size: contain;
+            width: 60px;
+            height: 40px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -72,5 +81,6 @@
     </footer>
 
     <script src="{% static 'javascript/loading.js' %}"></script>
+    <script src="{% static 'javascript/custom_form_loading.js' %}"></script>
 </body>
 </html>
