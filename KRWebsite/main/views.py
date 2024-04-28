@@ -95,7 +95,8 @@ def album_page(request, pk, name):
     context = {
         'name': name,
         'pk': pk,
-        'images': Image.objects.filter(album=pk)
+        'images': Image.objects.filter(album=pk),
+        'album_image': Album.objects.get(pk=pk).cover_image.url,
     }
     return render(request, template_name='album.html', context=context)
 

@@ -3,6 +3,8 @@
 
 {% block title %}KR Photography | {{ name }} | Album{% endblock %}
 {% block keywords %}{{ name }}{% endblock %}
+{% block page_image %}https://k-ruseva.eu{{ album_image }}{% endblock %}
+{% block page_title %}KR Photography | {{ name }}{% endblock %}
 
 {% block styles %}
     <link rel="stylesheet" href="{% static 'styles/album.css' %}">

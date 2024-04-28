@@ -14,9 +14,9 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://k-ruseva.eu{{ request.path }}" />
-    <meta property="og:title" content="KR Photography" />
+    <meta property="og:title" content="{% block page_title %}KR Photography{% endblock %}" />
     <meta property="og:description" content="Explore the captivating world through the lens of Karolina Ruseva, photographer with a passion. Immerse yourself in the artistry of KR Photography, where each image is a tale told through meticulous composition and profound visual narrative." />
-    <meta property="og:image" content="https://k-ruseva.eu/static_files/images/icon_logo2.png" />
+    <meta property="og:image" content={% block page_image %}"https://k-ruseva.eu/static_files/images/icon_logo2.png"{% endblock %} />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://k-ruseva.eu{{ request.path }}" />
